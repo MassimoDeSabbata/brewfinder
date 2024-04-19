@@ -11,11 +11,38 @@ Per poter avviare in locale l'applicazione è necessario avere installato sulla 
 
 Dopo aver clonato la repository in locale per avviarla eseguire i seguenti passaggi
 
+### Su Mac e Linux
+
+Da terminale:
 ```console
 composer install
 ./vendor/bin/sail up
+./vendor/bin/sail artisan migrate
 ./vendor/bin/sail artisan db:seed
 ```
+
+### Su windows
+
+Da PowerShell
+```console
+composer install
+```
+
+Ho riscontrato alcuni problemi con la versione corrente di sail su windows. Per tanto la migliore soluzione che ho trovato è la seguente:
+
+Da PowerShell
+```console
+bash ./vendor/laravel/sail/bin/sail up
+```
+
+Aprire poi il terminale del container creato per il volume di laravel su docker desktop ed eseguire:
+
+```console
+php artisan migrate
+php artisan db:seed
+```
+
+### Termine installazione
 
 Successivamente, a meno di diversa configurazione, le api saranno disponibili su "localhost:80" e l'interfaccia grafica sarà accedibile da browser all'indirizzo "http://localhost".
 
